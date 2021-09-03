@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Order summary card</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    /* red-hat-display-regular - latin */
+    @font-face {
+      font-family: 'Red Hat Display';
+      font-style: normal;
+      font-weight: 400;
+      src: url('../fonts/red-hat-display-v4-latin-regular.eot'); /* IE9 Compat Modes */
+      src: local(''),
+          url('../fonts/red-hat-display-v4-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+          url('../fonts/red-hat-display-v4-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+          url('../fonts/red-hat-display-v4-latin-regular.woff') format('woff'), /* Modern Browsers */
+          url('../fonts/red-hat-display-v4-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+          url('../fonts/red-hat-display-v4-latin-regular.svg#RedHatDisplay') format('svg'); /* Legacy iOS */
+    }
+
+    .attribution {
+      margin: 1rem 0;
+      font-size: 0.8rem; text-align: center; 
+      font-weight: 500;
+    }
+    .attribution a { 
+      color: hsl(228, 45%, 44%);
+    }
+    
+    body{
+      margin: 0px;
+      font-size: 1rem;
+      background: url(./images/pattern-background-mobile.svg) no-repeat center top;
+      background-color: hsl(225, 100%, 94%);
+      background-repeat: no-repeat;
+      background-size: 100% 50%;
+    }
+
+    .container{
+      max-width: 23.4375rem;
+      margin: 0 auto;
+    }
+
+    .image > img{
+      width: 21rem;
+      margin: 4rem 0 0 1.25rem;
+      border-radius: 25px 25px 0 0;
+    }
+
+    .section{
+      background-color: white;
+      position: relative;
+      width: 21rem;
+      bottom: 0.2rem;
+      left: 1.25rem;
+      box-sizing: border-box;
+      border-radius: 0 0 15px 15px;
+    }
+
+    .section__title{
+      text-align: center;
+      margin-top: 0;
+      padding-top: 1.5rem;
+      color: hsl(223, 47%, 23%);
+    }
+    
+    .section__subtitle{
+      position: relative;
+      left: 2rem;
+      text-align: center;
+      width: 80%;
+      color: hsl(224, 23%, 55%);
+    }
+
+    .section__price{
+      background-color: hsl(225, 100%, 98%);
+      border-radius: 10px;
+      margin-top: 2rem;
+      width: 90%;
+      position: relative;
+      left: 1rem;
+      display: flex;
+    }
+
+    .section__price > img{
+      padding: 1rem;
+    }
+
+    .section__price-plan{
+      padding: 1rem 0 0 0.5rem;
+    }
+
+    .plan{
+      color: hsl(223, 47%, 23%);
+      font-weight: 900;
+      font-size: 14px;
+      padding-top: 0.3rem;
+    }
+
+    .price{
+      padding-top: 0.2rem;
+      color: hsl(224, 23%, 55%);
+    }
+
+    .section__price-change{
+      font-size: 14px;
+      padding: 2rem 3rem;
+      text-decoration: underline;
+      color: hsl(245, 75%, 52%);
+      font-weight: 500;
+    }
+
+    .section__price-change:hover{
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .section__proceed{
+      margin: 1rem 1.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      background-color: hsl(245, 75%, 52%);
+      text-align: center;
+      color: white;
+      font-weight: 700;
+    }
+
+    .section__proceed:hover{
+      opacity: 0.7;
+      cursor: pointer;
+    }
+
+    .section__cancel{
+      text-align: center;
+      padding: 0 0 2rem 0;
+      color: hsl(224, 23%, 55%);
+    }
+
+    .section__cancel:hover{
+      cursor: pointer;
+    }
+
+    @media only screen and (min-width: 1440px) {
+      body{
+        background: url(./images/pattern-background-desktop.svg) no-repeat center top;
+        background-color: hsl(225, 100%, 94%);
+        background-repeat: no-repeat;
+        background-size: 100% 50%;
+      }
+
+      .container{
+      max-width: 32rem;
+    }
+
+      .image > img{
+        width: 30rem;
+        margin: 5rem 0 0 1.25rem;
+    }
+
+    .section{
+      width: 30rem;
+    }
+
+    .section__title{
+      font-size: 1.7rem;
+    }
+
+    .section__subtitle{
+      left: 3rem;
+    }
+
+    .section__price{
+      width: 80%;
+      left: 3rem;
+    }
+
+    .section__price-change{
+      padding: 2rem 7rem;
+      font-weight: 700;
+    }
+
+    .plan{ 
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .price{
+      padding-top: 0.3rem;
+      font-weight: 700;
+    }
+
+    .section__proceed{
+      font-size: 1rem;
+    }
+
+    .section__cancel{
+      padding-top: 1.5rem;
+      font-size: 1rem;
+    }
+      
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="image">
+      <img src="./images/illustration-hero.svg" alt="illustration image">
+    </div>
+  
+    <div class="section">
+      <h2 class="section__title">
+        Order Summary
+      </h2>
+    
+      <div class="section__subtitle">
+        You can now listen to millions of songs, audiobooks, and podcasts on any 
+        device anywhere you like!
+      </div>
+    
+      <div class="section__price">
+        <img src="./images/icon-music.svg" alt="Icon music">
+
+        <div class="section__price-plan">
+          
+          <div class="plan">
+            Annual Plan
+          </div>
+        
+          <div class="price">
+            $59.99/year
+          </div>
+          
+        </div>
+      
+        <div class="section__price-change">
+          Change
+        </div>
+      </div>
+    
+      <div class="section__proceed">
+        Proceed to Payment
+      </div>
+      
+      <div class="section__cancel">
+        Cancel Order
+      </div>
+      
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    <div class="my__name">
+      Coded by <a href="#">Ismoil Imomov</a>.
+    </div>
+  </div>
+ 
+</body>
+</html>
